@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace Tests\App;
 
 use App\PersonName;
 use App\Representation\DBPersonName;
