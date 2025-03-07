@@ -17,7 +17,7 @@ final class PersonName
         $this->surname = $surname;
     }
 
-    public function fill(Fillable $printer): Fillable
+    public function representAs(Fillable $printer): Fillable
     {
         $printer->fill('name', $this->name);
         $printer->fill('surname', $this->surname);

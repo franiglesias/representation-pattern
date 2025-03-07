@@ -51,28 +51,28 @@ class PersonNameRepresentationTest extends TestCase
 
     public function assertListName(PersonName $name, string $expected): void
     {
-        $printer  = $name->fill(new ListNamePrinter());
+        $printer  = $name->representAs(new ListNamePrinter());
         $listName = $printer->print();
         $this->assertEquals($expected, $listName);
     }
 
     public function assertFullName(PersonName $name, string $expected): void
     {
-        $printer  = $name->fill(new FullNamePrinter());
+        $printer  = $name->representAs(new FullNamePrinter());
         $fullName = $printer->print();
         $this->assertEquals($expected, $fullName);
     }
 
     public function assertDniName(PersonName $name, string $expected): void
     {
-        $printer = $name->fill(new OCRDniPrinter());
+        $printer = $name->representAs(new OCRDniPrinter());
         $dniName = $printer->ocr();
         $this->assertEquals($expected, $dniName);
     }
 
     public function assertDto(PersonName $name, DBPersonName $expected): void
     {
-        $printer = $name->fill(new MapToORMEntity());
+        $printer = $name->representAs(new MapToORMEntity());
         $dniName = $printer->dto();
         $this->assertEquals($expected, $dniName);
     }
